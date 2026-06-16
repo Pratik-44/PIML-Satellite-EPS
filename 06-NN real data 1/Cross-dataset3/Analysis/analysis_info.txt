@@ -1,0 +1,326 @@
+Here we perform the feature analysis on a simple NN model and not on DNN, DenseNN or LSTM for Voltage and Power prediction, as we need to account for several changes and analysis.
+
+Voltage DNN:
+=== FEATURE vs ERROR CORRELATION ===
+current         : 0.3772
+heater_power    : -0.1002
+load_current    : 0.7883
+eclipse_flag    : -0.0228
+payload_status  : 0.0384      
+
+=== TEST DATA DISTRIBUTION ===
+
+current
+Mean: 3.8349
+Std : 5.5261  
+
+heater_power  
+Mean: 215.1674
+Std : 87.3810
+
+load_current 
+Mean: 9.8233 
+Std : 3.5540
+
+eclipse_flag
+Mean: 0.7486
+Std : 0.4338
+
+payload_status
+Mean: 0.2266
+Std : 0.4187
+
+=== RANGE ===
+
+current
+-0.0531 → 87.3413
+
+heater_power
+10.8000 → 446.8000
+
+load_current
+4.1735 → 88.8946
+
+eclipse_flag
+0.0000 → 1.0000
+
+payload_status
+0.0000 → 1.0000
+
+=== ERROR BY FEATURE BINS ===
+current         → Avg Error: 21.7590
+heater_power    → Avg Error: 17.6375
+load_current    → Avg Error: 16.6674
+eclipse_flag    → Avg Error: 17.0260
+payload_status  → Avg Error: 17.0260
+
+Voltage DeepNN:
+=== FEATURE vs ERROR CORRELATION ===
+current         : 0.3844
+heater_power    : -0.0687
+load_current    : 0.8219
+eclipse_flag    : -0.0189
+payload_status  : 0.0706
+
+=== TEST DATA DISTRIBUTION ===
+
+current
+Mean: 3.8349
+Std : 5.5261
+
+heater_power
+Mean: 215.1674
+Std : 87.3810
+
+load_current
+Mean: 9.8233
+Std : 3.5540
+
+eclipse_flag
+Mean: 0.7486
+Std : 0.4338
+
+payload_status
+Mean: 0.2266
+Std : 0.4187
+
+=== RANGE ===
+
+current
+-0.0531 → 87.3413
+
+heater_power
+10.8000 → 446.8000
+
+load_current
+4.1735 → 88.8946
+
+eclipse_flag
+0.0000 → 1.0000
+
+payload_status
+0.0000 → 1.0000
+
+=== ERROR BY FEATURE BINS ===
+current         → Avg Error: 18.9955
+heater_power    → Avg Error: 13.6817
+load_current    → Avg Error: 13.8490
+eclipse_flag    → Avg Error: 13.3008
+payload_status  → Avg Error: 13.3008
+
+Voltage LSTM:
+=== FEATURE vs ERROR CORRELATION ===
+current         : 0.1469
+heater_power    : -0.2668
+load_current    : 0.2291
+eclipse_flag    : -0.0238
+payload_status  : 0.0286
+
+=== TEST DATA DISTRIBUTION ===
+
+current
+Mean: 3.8349
+Std : 5.5261
+
+heater_power
+Mean: 215.1661
+Std : 87.3812
+
+load_current
+Mean: 9.8233
+Std : 3.5540
+
+eclipse_flag
+Mean: 0.7486
+Std : 0.4338
+
+payload_status
+Mean: 0.2266
+Std : 0.4187
+
+=== RANGE ===
+
+current
+-0.0531 → 87.3413
+
+heater_power
+10.8000 → 446.8000
+
+load_current
+4.1735 → 88.8946
+
+eclipse_flag
+0.0000 → 1.0000
+
+payload_status
+0.0000 → 1.0000
+
+=== ERROR BY FEATURE BINS ===
+current         → Avg Error: 1.4725
+heater_power    → Avg Error: 1.5660
+load_current    → Avg Error: 1.5058
+eclipse_flag    → Avg Error: 1.5386
+payload_status  → Avg Error: 1.5386
+
+Power DNN:
+=== FEATURE vs ERROR CORRELATION ===
+current         : 0.3614
+heater_power    : -0.0757
+load_current    : 0.8107
+eclipse_flag    : 0.0069
+payload_status  : 0.0589      
+
+=== TEST DATA DISTRIBUTION ===
+
+current
+Mean: 3.8349
+Std : 5.5261  
+
+heater_power  
+Mean: 215.1674
+Std : 87.3810
+
+load_current
+Mean: 9.8233
+Std : 3.5540
+
+eclipse_flag
+Mean: 0.7486
+Std : 0.4338
+
+payload_status
+Mean: 0.2266
+Std : 0.4187
+
+=== RANGE ===
+
+current
+-0.0531 → 87.3413
+
+heater_power
+10.8000 → 446.8000
+
+load_current
+4.1735 → 88.8946
+
+eclipse_flag
+0.0000 → 1.0000
+
+payload_status
+0.0000 → 1.0000
+
+=== ERROR BY FEATURE BINS ===
+current         → Avg Error: 191.5049
+heater_power    → Avg Error: 171.6738
+load_current    → Avg Error: 168.7202
+eclipse_flag    → Avg Error: 155.2454
+payload_status  → Avg Error: 155.2454
+
+Power DeepNN:
+=== FEATURE vs ERROR CORRELATION ===
+current         : 0.3885
+heater_power    : -0.1164
+load_current    : 0.7677
+eclipse_flag    : -0.0735
+payload_status  : 0.0068
+
+=== TEST DATA DISTRIBUTION ===
+
+current
+Mean: 3.8349
+Std : 5.5261
+
+heater_power
+Mean: 215.1674
+Std : 87.3810
+
+load_current
+Mean: 9.8233
+Std : 3.5540
+
+eclipse_flag
+Mean: 0.7486
+Std : 0.4338
+
+payload_status
+Mean: 0.2266
+Std : 0.4187
+
+=== RANGE ===
+
+current
+-0.0531 → 87.3413
+
+heater_power
+10.8000 → 446.8000
+
+load_current
+4.1735 → 88.8946
+
+eclipse_flag
+0.0000 → 1.0000
+
+payload_status
+0.0000 → 1.0000
+
+=== ERROR BY FEATURE BINS ===
+current         → Avg Error: 191.6556
+heater_power    → Avg Error: 176.6691
+load_current    → Avg Error: 136.7308
+eclipse_flag    → Avg Error: 122.8142
+payload_status  → Avg Error: 122.8142
+
+Power LSTM:
+=== FEATURE vs ERROR CORRELATION ===
+current         : 0.3681
+heater_power    : -0.1753
+load_current    : 0.7243
+eclipse_flag    : -0.0254
+payload_status  : 0.0862
+
+=== TEST DATA DISTRIBUTION ===
+
+current
+Mean: 3.8349
+Std : 5.5261
+
+heater_power
+Mean: 215.1661
+Std : 87.3812
+
+load_current
+Mean: 9.8233
+Std : 3.5540
+
+eclipse_flag
+Mean: 0.7486
+Std : 0.4338
+
+payload_status
+Mean: 0.2266
+Std : 0.4187
+
+=== RANGE ===
+
+current
+-0.0531 → 87.3413
+
+heater_power
+10.8000 → 446.8000
+
+load_current
+4.1735 → 88.8946
+
+eclipse_flag
+0.0000 → 1.0000
+
+payload_status
+0.0000 → 1.0000
+
+=== ERROR BY FEATURE BINS ===
+current         → Avg Error: 29.7506
+heater_power    → Avg Error: 20.2057
+load_current    → Avg Error: 38.7372
+eclipse_flag    → Avg Error: 18.4903
+payload_status  → Avg Error: 18.4903
+
