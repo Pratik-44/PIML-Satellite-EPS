@@ -1,0 +1,70 @@
+=== Voltage GRU Results ===
+MAE : 0.06499135878731901
+RMSE: 0.09529210226208853
+R2  : 0.919829712562731
+
+The GRU model shows excellent performance for voltage prediction, with very low error values (MAE ~0.065, RMSE ~0.095) and a high R² of 0.92, indicating strong predictive accuracy. This suggests the model effectively captures temporal dependencies and system dynamics. Compared to other models, GRU provides stable and reliable predictions across operating conditions. Overall, it demonstrates strong suitability for time-series telemetry modeling.
+
+=== Power GRU Results ===
+MAE : 6.273252518318047
+RMSE: 39.37541377762526
+R2  : 0.9219152141936725
+
+The GRU model shows strong performance for power prediction, with relatively low error (MAE ~6.27) and high R² of 0.92, indicating accurate learning of power dynamics. Despite higher RMSE due to scale and variability, the model captures nonlinear relationships and temporal behavior effectively. Compared to feedforward models, GRU provides stable and reliable predictions under varying load conditions. Overall, it is well-suited for complex time-series power modeling.
+
+=== Voltage Transformer Results ===
+MAE : 0.08255038787708871
+RMSE: 0.10726554977570141
+R2  : 0.8984177712225073
+
+The Transformer model shows strong performance for voltage prediction, with low errors (MAE ~0.083, RMSE ~0.107) and high R² of 0.90, indicating good predictive capability. It effectively captures global dependencies and system behavior through attention mechanisms. However, performance is slightly lower than GRU, suggesting minor limitations in capturing fine temporal patterns. Overall, it remains a reliable model for voltage time-series prediction.
+
+=== Power Transformer Results ===
+MAE : 23.788013610710365
+RMSE: 54.51630603195824
+R2  : 0.8503208389853638
+
+The Transformer model shows good performance for power prediction, with moderate errors (MAE ~23.8, RMSE ~54.5) and a high R² of 0.85, indicating effective learning of system behavior. It captures nonlinear relationships and global dependencies, but performance is lower than GRU, especially under high variability. The higher RMSE reflects sensitivity to power fluctuations and load changes. Overall, it remains a reliable but slightly less precise model compared to GRU for power prediction.
+
+=== Voltage GAN Results ===
+MAE : 2.8532904546803044
+RMSE: 3.134009843773177 
+R2  : -85.71573783450533
+
+The GAN model performs very poorly for voltage prediction, with high errors (MAE ~2.85, RMSE ~3.13) and a highly negative R² (-85.7), indicating complete failure to learn the underlying relationship. The model is unable to capture temporal patterns and system dynamics, leading to unstable and inaccurate predictions. This highlights that GAN is unsuitable for precise regression tasks in this context. Overall, it is significantly inferior to GRU and Transformer models.
+
+=== Power GAN Results ===
+MAE : 64.49836965540396
+RMSE: 136.83123425328404
+R2  : 0.05707101166298634
+
+The GAN model shows poor performance for power prediction, with high errors (MAE ~64.5, RMSE ~136.8) and a very low R² (~0.06), indicating weak predictive capability. The model fails to capture nonlinear power relationships and temporal dependencies, leading to inaccurate outputs. While not completely failing (R² > 0), performance is significantly inferior to GRU and Transformer. Overall, GAN is not suitable for reliable power regression in this task.
+
+Summary:
+For this dataset, both GRU and Transformer perform strongly, with high R² values (>0.85) for both voltage and power, while GRU achieves the best overall performance (R² ~0.92). Transformer follows closely but shows slightly higher errors, especially in power prediction. In contrast, GAN performs poorly, with highly negative R² for voltage and very low R² for power, indicating unreliable predictions. This highlights that temporal models (GRU) are most effective, followed by attention-based models, while GAN is unsuitable.
+
+Combined:
+=== Voltage GRU Results === 
+MAE : 0.06499135878731901 
+RMSE: 0.09529210226208853 
+R2 : 0.919829712562731 
+=== Power GRU Results === 
+MAE : 6.273252518318047 
+RMSE: 39.37541377762526 
+R2 : 0.9219152141936725 
+=== Voltage Transformer Results === 
+MAE : 0.08255038787708871 
+RMSE: 0.10726554977570141 
+R2 : 0.8984177712225073 
+=== Power Transformer Results === 
+MAE : 23.788013610710365 
+RMSE: 54.51630603195824 
+R2 : 0.8503208389853638 
+=== Voltage GAN Results === 
+MAE : 2.8532904546803044 
+RMSE: 3.134009843773177 
+R2 : -85.71573783450533 
+=== Power GAN Results === 
+MAE : 64.49836965540396 
+RMSE: 136.83123425328404 
+R2 : 0.05707101166298634

@@ -1,0 +1,32 @@
+=== Voltage GRU Results ===
+MAE : 0.28466735270481514
+RMSE: 0.35664668319828113
+R2  : -0.12299029571744158
+
+=== Power GRU Results ===
+MAE : 266.33897886776884
+RMSE: 292.28110352307795
+R2  : -3.302467900362166
+
+=== Voltage Transformer Results ===
+MAE : 0.2820503705049771
+RMSE: 0.35299867381405664
+R2  : -0.10012835592593383
+
+=== Power Transformer Results ===
+MAE : 266.5638673026016
+RMSE: 292.4821674913774
+R2  : -3.3083133584750932
+
+=== Voltage GAN Results ===
+MAE : 0.27885881401508666
+RMSE: 0.3639430064129095
+R2  : -0.16940236519491658
+
+=== Power GAN Results ===
+MAE : 262.4253361114288
+RMSE: 288.86816893128525
+R2  : -3.202501485509506
+
+Summary:
+For this dataset, all models perform poorly, with negative R² for both voltage and power, indicating failure to learn meaningful relationships. For voltage, GRU and Transformer perform similarly and slightly better than GAN, but still lack predictive reliability. For power, all models show extremely high errors and very negative R² (~ -3), suggesting severe difficulty in capturing system behavior. This indicates the dataset is highly challenging (likely noisy or distribution-shifted), where neither temporal nor attention-based models generalize well, and GAN offers no advantage.

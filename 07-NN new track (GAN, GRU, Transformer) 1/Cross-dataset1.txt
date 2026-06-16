@@ -1,0 +1,82 @@
+GRU (Gated Recurrent Unit)
+
+=== Voltage GRU Results ===
+MAE : 0.5213884068014274
+RMSE: 0.5822451475970581
+R2  : -2.379852387960277
+Saved: voltage_GRU_predictions.csv
+GRU relies on temporal dependencies, but voltage in this system is largely governed by instantaneous relationships. Additionally, cross-dataset differences in temporal patterns reduce the effectiveness of sequence models.
+
+=== Power GRU Results ===
+MAE : 26.434416990774185
+RMSE: 112.4893431264364
+R2  : 0.34890340999560054
+Because power is primarily governed by instantaneous relationships, temporal models like GRU introduce unnecessary complexity and degrade performance.
+GRU underperforms for both voltage and power in this setup, reinforcing that sequence models are not suitable when temporal dependencies are weak or inconsistent across datasets.
+
+Transformer
+=== Voltage Transformer Results ===
+MAE : 0.2917532645549319
+RMSE: 0.40883431868899495
+R2  : -0.6660976557050153
+
+1. Transformer DID learn something
+Big improvement from GRU
+R² improved significantly
+So:Attention mechanism is helping
+2. Still failing overall
+Reason 1: Weak temporal dependency
+Voltage is mostly:
+f(current, load, heater, etc.)
+NOT:
+f(past values)
+Reason 2: Cross-dataset temporal mismatch
+Train sequence patterns ≠ Test sequence patterns
+Transformer struggles more than DNN
+Reason 3: Overkill model
+
+Transformer:Designed for long dependencies
+Your system:Short-term + mostly instantaneous
+Even advanced sequence models like Transformers fail when the underlying system lacks strong temporal dependencies.
+
+=== Power Transformer Results ===
+MAE : 31.936079560661955
+RMSE: 60.27891880702255
+R2  : 0.8130334391616596
+
+1. Transformer learns better than GRU
+ Attention > recurrence in this case
+2. Still worse than simple models
+Because: Power ≈ instantaneous function
+NOT:
+Power ≈ sequence-dependent function
+3. Sequence models introduce unnecessary complexity
+Transformer tries to learn:
+Temporal relationships but:These relationships are weak
+Adds noise instead of value
+
+Even though Transformer captures patterns better than GRU, it still underperforms compared to simple models because the underlying system is dominated by instantaneous relationships.
+
+GAN (Generative Adversarial Network)
+Working of GAN
+Two networks:
+Generator → creates fake telemetry data
+Discriminator → detects real vs fake
+They compete → generator improves
+
+=== Voltage GAN Results ===
+MAE : 1.2403887431572886
+RMSE: 1.5336175069165185
+R2  : -22.4444408537559
+
+The GAN model performs poorly for voltage prediction, with a highly negative R² value (-22.44), indicating failure to learn the underlying relationship. While error magnitudes appear moderate, the model is inconsistent and unreliable, demonstrating that GANs are not suitable for precise regression tasks compared to sequence models like LSTM and Transformer.
+
+=== Power GAN Results ===
+MAE : 188.53909377814273
+RMSE: 231.39496476330186
+R2  : -1.7551220345448488
+
+The GAN model performs poorly for power prediction, with very high error values and a negative R² (-1.75), indicating failure to capture the underlying nonlinear power relationship. The model struggles particularly due to error propagation and sensitivity to load variations, making GAN unsuitable for accurate power regression compared to sequence-based models.
+
+Summary:
+For this dataset, model performance varies significantly between voltage and power tasks. For voltage, all models perform poorly with negative R², though Transformer is relatively better than GRU, while GAN fails completely. For power, Transformer performs best (R² ~0.81), followed by GRU with moderate performance, whereas GAN again performs very poorly. This indicates that attention-based models generalize better on this dataset, while temporal models (GRU) struggle and GAN remains unsuitable. Overall, Transformer is the most reliable model for this dataset.

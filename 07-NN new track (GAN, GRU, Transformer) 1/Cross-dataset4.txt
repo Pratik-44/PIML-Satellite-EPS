@@ -1,0 +1,32 @@
+=== Voltage GRU Results ===
+MAE : 0.31701430503415107
+RMSE: 0.4414703278801313
+R2  : -0.7206901102676562
+
+=== Power GRU Results ===
+MAE : 81.92084850902495
+RMSE: 148.84174524292214
+R2  : -0.11574685020564668
+
+=== Voltage Transformer Results ===
+MAE : 0.29818284929746997
+RMSE: 0.43332460180134325
+R2  : -0.6577685812651608
+
+=== Power Transformer Results ===
+MAE : 117.19309579122933
+RMSE: 172.58258915745387
+R2  : -0.5000386833528767
+
+=== Voltage GAN Results ===
+MAE : 0.9110893124655886
+RMSE: 0.9837452021903079
+R2  : -7.5440241218726545
+
+=== Power GAN Results ===
+MAE : 137.67170632683218
+RMSE: 187.80385930526455
+R2  : -0.7763049407956915
+
+Summary:
+For this dataset, all models struggle, with negative R² for both voltage and power, indicating poor generalization. For voltage, Transformer performs slightly better than GRU, while GAN performs significantly worse. For power, GRU shows relatively better performance compared to Transformer and GAN, though still unreliable. Overall, temporal and attention models degrade under this dataset, while GAN remains the weakest, suggesting strong distribution shift or data complexity affecting all models.
