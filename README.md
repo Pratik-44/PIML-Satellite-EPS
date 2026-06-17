@@ -169,43 +169,66 @@ Several architectural and training improvements were explored, including:
 
 ---
 
-## Repository Structure
+## Repository Organization
 
 ```text
-Actual Code/
+PIML-Satellite-EPS/
 │
-├── Core implementations
-├── Physics-informed experiments
-├── Model training pipelines
+├── 01-Comparison with original
+│   └── Comparison of simulated telemetry against original datasets and baseline power-system behavior.
 │
-NN/
+├── 02-Earlier Plots and Data
+│   └── Initial exploratory analysis, visualizations, and preliminary project investigations.
 │
-├── Voltage Prediction
-├── Power Prediction
-├── DNN Experiments
-├── DeepNN Experiments
-├── LSTM Experiments
+├── 03-ML Prediction
+│   └── Classical machine learning experiments for voltage and power prediction.
 │
-NN new track/
+├── 04-New Data
+│   └── Analysis and evaluation on additional telemetry datasets used for validation studies.
 │
-├── GRU
-├── Transformer
-├── GAN
-├── Cross-dataset Studies
+├── 05-Neural Networks (NN) (DeepNN, DNN, LSTM)
+│   │
+│   ├── Voltage Prediction
+│   │   ├── 80-20 Split Experiments
+│   │   └── Time-wise Split Experiments
+│   │
+│   ├── Power Prediction
+│   │   ├── 80-20 Split Experiments
+│   │   └── Time-wise Split Experiments
+│   │
+│   └── Cross-Dataset
+│       ├── Voltage Prediction
+│       ├── Power Prediction
+│       └── Cross-dataset analysis and justification studies
 │
-Reports/
+├── 06-NN Real Data
+│   │
+│   ├── Cross-Dataset
+│   ├── Cross-Dataset2
+│   └── Cross-Dataset3
 │
-├── Analysis Documents
-├── Experimental Results
-├── Comparative Studies
+│   These experiments evaluate model behavior on real telemetry
+│   datasets and investigate generalization under varying
+│   operating conditions and distribution shifts.
 │
-Results/
+├── 07-NN New Track (GAN, GRU, Transformer)
+│   │
+│   ├── GAN
+│   ├── GRU
+│   └── Transformer
 │
-├── Prediction Outputs
-├── Evaluation Metrics
-├── Visualization Plots
+│   Each model family contains:
+│   - Cross-dataset studies
+│   - Model improvement experiments
+│   - Comparative evaluations
+│   - Generalization analysis
+│
+├── README.md
+│   └── Project overview and repository guide.
+│
+└── TECHNICAL_REPORT.md
+    └── Detailed methodology, experiments, findings, and analysis.
 ```
-
 ---
 
 ## Technologies Used
